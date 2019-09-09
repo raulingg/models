@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress Completeness should add completeness keys when a part is gonna be completed: Completeness over unit 1`] = `
+Object {
+  "completedAt": null,
+  "completedDuration": 10,
+  "completedParts": 1,
+  "percent": 25,
+}
+`;
+
+exports[`Progress Completeness should add completeness keys when a part is gonna be completed: Overall Completeness 1`] = `
+Object {
+  "completedAt": null,
+  "completedDuration": 10,
+  "completedUnits": 0,
+  "percent": 20,
+}
+`;
+
+exports[`Progress Completeness should complete progress when all its units are gonna be completed: Overall Completeness 1`] = `
+Object {
+  "completedAt": Any<Date>,
+  "completedDuration": 50,
+  "completedUnits": 2,
+  "percent": 100,
+}
+`;
+
+exports[`Progress Completeness should complete unit when all its parts are gonna be completed: Completeness over unit 1`] = `
+Object {
+  "completedAt": Any<Date>,
+  "completedDuration": 10,
+  "completedParts": 1,
+  "percent": 100,
+}
+`;
+
+exports[`Progress should save progress 1`] = `
+Object {
+  "__v": 0,
+  "_id": Any<Object>,
+  "cohortTopic": Any<Object>,
+  "completedAt": null,
+  "completedDuration": 0,
+  "completedUnits": 0,
+  "createdAt": Any<Date>,
+  "percent": 0,
+  "units": Array [],
+  "updatedAt": Any<Date>,
+  "user": Any<Object>,
+}
+`;

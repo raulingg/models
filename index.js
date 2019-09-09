@@ -25,7 +25,9 @@ const Topic = require('./src/Topic');
 const TopicUnit = require('./src/TopicUnit');
 const TopicUnitPart = require('./src/TopicUnitPart');
 const User = require('./src/User');
-
+const Progress = require('./src/Progress');
+const ProgressUnit = require('./src/ProgressUnit');
+const ProgressPart = require('./src/ProgressPart');
 
 module.exports = (conn) => {
   const {
@@ -54,6 +56,9 @@ module.exports = (conn) => {
     TopicUnitSchema,
     TopicUnitPartSchema,
     UserSchema,
+    ProgressSchema,
+    ProgressUnitSchema,
+    ProgressPartSchema,
   } = schemas(conn, (new JSDOM()).window.document);
 
   return {
@@ -82,6 +87,9 @@ module.exports = (conn) => {
     TopicUnit: TopicUnit(conn, TopicUnitSchema),
     TopicUnitPart: TopicUnitPart(conn, TopicUnitPartSchema),
     User: User(conn, UserSchema),
+    Progress: Progress(conn, ProgressSchema),
+    ProgressUnit: ProgressUnit(conn, ProgressUnitSchema),
+    ProgressPart: ProgressPart(conn, ProgressPartSchema),
     CampusSchema,
     CohortSchema,
     CohortMembershipSchema,
@@ -107,5 +115,8 @@ module.exports = (conn) => {
     TopicUnitSchema,
     TopicUnitPartSchema,
     UserSchema,
+    ProgressSchema,
+    ProgressUnitSchema,
+    ProgressPartSchema,
   };
 };

@@ -92,8 +92,8 @@
   "benchmarks": "",
   "references": "<ul>\n<li><a href=\"https://babeljs.io/docs\">Docs</a></li>\n<li><a href=\"https://babeljs.io/repl\">Try it out!</a></li>\n</ul>\n",
   "stats": {
-    "duration": 40,
-    "durationString": "40min",
+    "duration": 50,
+    "durationString": "50min",
     "exerciseCount": 0,
     "unitCount": 1,
     "partCount": 3
