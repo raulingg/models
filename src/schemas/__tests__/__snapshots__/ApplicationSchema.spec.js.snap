@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationSchema should fail validation when fields are missing 1`] = `
+Object {
+  "cohort": [ValidatorError: Path \`cohort\` is required.],
+  "email": [ValidatorError: Path \`email\` is required.],
+  "familyName": [ValidatorError: Path \`familyName\` is required.],
+  "identificationNumber": [ValidatorError: Path \`identificationNumber\` is required.],
+  "mobileNumber": [ValidatorError: Path \`mobileNumber\` is required.],
+  "name": [ValidatorError: Path \`name\` is required.],
+  "passed": [ValidatorError: Path \`passed\` is required.],
+}
+`;
+
+exports[`ApplicationSchema should fail validation when some of fields are invalid 1`] = `
+Object {
+  "appliedAt": [CastError: Cast to Date failed for value "notDate" at path "appliedAt"],
+  "passed": [CastError: Cast to Boolean failed for value "notBoolean" at path "passed"],
+}
+`;

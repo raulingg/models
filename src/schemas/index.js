@@ -1,3 +1,4 @@
+const ApplicationSchema = require('./ApplicationSchema');
 const CampusSchema = require('./CampusSchema');
 const CohortMembershipSchema = require('./CohortMembershipSchema');
 const CohortPlatziCourseSchema = require('./CohortPlatziCourseSchema');
@@ -27,6 +28,7 @@ const UserActivityFeedEventSchemas = require('./UserActivityFeedEventSchemas');
 
 
 module.exports = (conn, document) => ({
+  ApplicationSchema: ApplicationSchema(conn),
   CampusSchema: CampusSchema(conn),
   CohortMembershipSchema: CohortMembershipSchema(conn),
   CohortPlatziCourseSchema: CohortPlatziCourseSchema(conn),
