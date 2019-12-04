@@ -1,5 +1,6 @@
 const { JSDOM } = require('jsdom');
 const schemas = require('./src/schemas');
+const Baseline = require('./src/Baseline');
 const Campus = require('./src/Campus');
 const Cohort = require('./src/Cohort');
 const CohortMembership = require('./src/CohortMembership');
@@ -30,6 +31,7 @@ const UserActivityFeedModels = require('./src/UserActivityFeed');
 
 module.exports = (conn) => {
   const {
+    BaselineSchema,
     CampusSchema,
     CohortSchema,
     CohortMembershipSchema,
@@ -59,6 +61,7 @@ module.exports = (conn) => {
   } = schemas(conn, (new JSDOM()).window.document);
 
   return {
+    Baseline: Baseline(conn, BaselineSchema),
     Campus: Campus(conn, CampusSchema),
     Cohort: Cohort(conn, CohortSchema),
     CohortMembership: CohortMembership(conn, CohortMembershipSchema),
@@ -85,6 +88,7 @@ module.exports = (conn) => {
     TopicUnitPart: TopicUnitPart(conn, TopicUnitPartSchema),
     User: User(conn, UserSchema),
     UserActivityFeedEvents: UserActivityFeedModels(conn, UserActivityFeedEventSchemas),
+    Baseline: Baseline(conn, BaselineSchema),
     CampusSchema,
     CohortSchema,
     CohortMembershipSchema,
@@ -111,5 +115,6 @@ module.exports = (conn) => {
     TopicUnitPartSchema,
     UserSchema,
     UserActivityFeedEventSchemas,
+    BaselineSchema,
   };
 };
