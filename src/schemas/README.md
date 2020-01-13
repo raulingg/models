@@ -56,6 +56,10 @@ project.validate()
 
 ## Schemas
 
+### Application
+
+* [`ApplicationSchema`](./ApplicationSchema.js)
+
 ### Campuses
 
 * [`CampusSchema`](./CampusSchema.js)

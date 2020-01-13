@@ -123,6 +123,10 @@ yarn e2e
 
 ## Models
 
+### Application
+
+* [`Application`](./src/Application.js)
+
 ### Campuses
 
 * [`Campus`](./src/Campus.js)
