@@ -7,7 +7,7 @@ module.exports = (conn) => {
     return rest;
   };
   const ApplicationSchema = new conn.Schema({
-    cohort: { type: String, required: true },
+    cohortSlug: { type: String, required: true },
     email: { type: String, required: true, index: true },
     identificationNumber: { type: String, required: true },
     name: { type: String, required: true },
@@ -21,9 +21,9 @@ module.exports = (conn) => {
 
   ApplicationSchema.index({ cohort: 1, email: 1 });
 
-  ApplicationSchema.virtual('cohortRef', {
+  ApplicationSchema.virtual('cohort', {
     ref: 'Cohort',
-    localField: 'cohort',
+    localField: 'cohortSlug',
     foreignField: 'slug',
     justOne: true,
   });
