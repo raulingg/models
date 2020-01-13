@@ -1,5 +1,6 @@
 const { JSDOM } = require('jsdom');
 const schemas = require('./src/schemas');
+const Application = require('./src/Application');
 const Campus = require('./src/Campus');
 const Cohort = require('./src/Cohort');
 const CohortMembership = require('./src/CohortMembership');
@@ -7,27 +8,25 @@ const CohortPlatziCourse = require('./src/CohortPlatziCourse');
 const CohortProject = require('./src/CohortProject');
 const CohortTopic = require('./src/CohortTopic');
 const CohortTopicSettings = require('./src/CohortTopicSettings');
+const Endorsement = require('./src/Endorsement');
 const GraduateProfile = require('./src/GraduateProfile');
 const GraduateProfileEndorsement = require('./src/GraduateProfileEndorsement');
 const GraduateProfileLifeSkill = require('./src/GraduateProfileLifeSkill');
 const GraduateProfileProject = require('./src/GraduateProfileProject');
+const HiringProcess = require('./src/HiringProcess');
+const JobOpportunity = require('./src/JobOpportunity');
 const Organization = require('./src/Organization');
 const OrganizationMembership = require('./src/OrganizationMembership');
-const JobOpportunity = require('./src/JobOpportunity');
-const HiringProcess = require('./src/HiringProcess');
 const Project = require('./src/Project');
 const ProjectFeedback = require('./src/ProjectFeedback');
 const ReviewerSurvey = require('./src/ReviewerSurvey');
 const ReviewQuestion = require('./src/ReviewQuestion');
 const Tag = require('./src/Tag');
-const Endorsement = require('./src/Endorsement');
 const Topic = require('./src/Topic');
 const TopicUnit = require('./src/TopicUnit');
 const TopicUnitPart = require('./src/TopicUnitPart');
 const User = require('./src/User');
 const UserActivityFeedModels = require('./src/UserActivityFeed');
-const Application = require('./src/Application');
-
 
 module.exports = (conn) => {
   const {
