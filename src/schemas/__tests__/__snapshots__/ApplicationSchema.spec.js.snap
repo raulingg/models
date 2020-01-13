@@ -2,7 +2,7 @@
 
 exports[`ApplicationSchema should fail validation when fields are missing 1`] = `
 Object {
-  "cohort": [ValidatorError: Path \`cohort\` is required.],
+  "cohortSlug": [ValidatorError: Path \`cohortSlug\` is required.],
   "email": [ValidatorError: Path \`email\` is required.],
   "familyName": [ValidatorError: Path \`familyName\` is required.],
   "identificationNumber": [ValidatorError: Path \`identificationNumber\` is required.],
