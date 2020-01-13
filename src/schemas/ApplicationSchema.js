@@ -1,7 +1,7 @@
 module.exports = (conn) => {
-  const transform = (doc, { id, cohortRef, ...rest }) => {
-    if (cohortRef && cohortRef.campus && cohortRef.campus.name) {
-      return Object.assign(rest, { city: cohortRef.campus.name });
+  const transform = (doc, { id, cohort, ...rest }) => {
+    if (cohort && cohort.campus && cohort.campus.name) {
+      return Object.assign(rest, { city: cohort.campus.name });
     }
 
     return rest;
