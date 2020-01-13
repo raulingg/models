@@ -12,7 +12,7 @@ describe('ApplicationSchema', () => {
     const cohort = new mongoose.Document({}, CohortSchema);
     const doc = new mongoose.Document(
       {
-        cohort: cohort._id,
+        cohortSlug: cohort._id,
         email: 'test@example.com',
         identificationNumber: '45487844',
         name: 'Test',
@@ -32,7 +32,7 @@ describe('ApplicationSchema', () => {
     const cohort = new mongoose.Document({}, CohortSchema);
     const doc = new mongoose.Document(
       {
-        cohort: cohort._id,
+        cohortSlug: cohort._id,
         email: 'test@example.com',
         identificationNumber: '45487844',
         name: 'Test',
