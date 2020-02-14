@@ -1,0 +1,15 @@
+.*.swp
+._*
+.DS_Store
+.git
+.hg
+.npmrc
+.vscode
+.travis.yml
+.eslintrc
+.editorconfig
+npm-debug.log
+
+**/*/__tests__
+coverage
+jest.*.js
