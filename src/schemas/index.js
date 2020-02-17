@@ -25,7 +25,7 @@ const TopicUnitSchema = require('./TopicUnitSchema');
 const TopicUnitPartSchema = require('./TopicUnitPartSchema');
 const UserSchema = require('./UserSchema');
 const UserActivityFeedEventSchemas = require('./UserActivityFeedEventSchemas');
-
+const UserActivityLogSchema = require('./UserActivityLogSchema');
 
 module.exports = (conn, document) => ({
   ApplicationSchema: ApplicationSchema(conn),
@@ -56,4 +56,5 @@ module.exports = (conn, document) => ({
   TopicUnitPartSchema: TopicUnitPartSchema(conn, document || (typeof window !== 'undefined' ? window : {}).document),
   UserSchema: UserSchema(conn),
   UserActivityFeedEventSchemas: UserActivityFeedEventSchemas(conn),
+  UserActivityLogSchema: UserActivityLogSchema(conn),
 });
