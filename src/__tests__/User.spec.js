@@ -3,7 +3,6 @@ const {
   Campus,
   Cohort,
   CohortProject,
-  Endorsement,
   User,
   Tag,
   Project,
@@ -243,50 +242,5 @@ describe('User', () => {
 
     return doc.save()
       .catch(err => expect(err.message).toMatchSnapshot());
-  });
-
-  it('should fail given an AcademicProfile Endorsement with missing createdBy', async () => {
-    const endorsement = new Endorsement({ text: 'foo' });
-    const doc = new User({
-      uid: 'abcdefghijklmnopqrstuvwxyz',
-      email: 'someone@someone',
-      name: 'Someone',
-      academicProfile: {
-        endorsements: [
-          {
-            createdBy: new User(),
-            endorsement: endorsement._id,
-          },
-        ],
-      },
-    });
-
-    await endorsement.save();
-
-    return doc.save()
-      .catch((err) => {
-        expect(err.message).toBe('CreatedBy does not exist');
-      });
-  });
-
-  it('should fail given an AcademicProfile Endorsement with missing endorsement', async () => {
-    const doc = new User({
-      uid: 'abcd',
-      email: 'other@other',
-      name: 'other',
-      academicProfile: {
-        endorsements: [
-          {
-            createdBy: user._id,
-            endorsement: new Endorsement(),
-          },
-        ],
-      },
-    });
-
-    return doc.save()
-      .catch((err) => {
-        expect(err.message).toBe('Endorsement does not exist');
-      });
   });
 });
