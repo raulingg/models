@@ -1,7 +1,6 @@
 const mongoose = require('mongoose/browser');
 const AcademicProfileSchema = require('../AcademicProfileSchema')(mongoose);
 const AcademicProfileTagSchema = require('../AcademicProfileTagSchema')(mongoose);
-const AcademicProfileEndorsementSchema = require('../AcademicProfileEndorsementSchema')(mongoose);
 const AcademicProfileCommentSchema = require('../AcademicProfileCommentSchema')(mongoose);
 const UserSchema = require('../UserSchema')(mongoose);
 const TagSchema = require('../TagSchema')(mongoose);
@@ -9,12 +8,10 @@ const TagSchema = require('../TagSchema')(mongoose);
 describe('AcademicProfileSchema', () => {
   it('should fail with empty embedded documents', (done) => {
     const tag = new mongoose.Document({}, AcademicProfileTagSchema);
-    const endorsement = new mongoose.Document({}, AcademicProfileEndorsementSchema);
     const comment = new mongoose.Document({}, AcademicProfileCommentSchema);
 
     const doc = new mongoose.Document({
       tags: [tag],
-      endorsements: [endorsement],
       comments: [comment],
     }, AcademicProfileSchema);
 

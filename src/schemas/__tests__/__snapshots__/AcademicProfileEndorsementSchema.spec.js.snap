@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`AcademicProfileEndorsementSchema should fail validation when missing fields are provided 1`] = `
-Object {
-  "createdBy": [ValidatorError: Path \`createdBy\` is required.],
-  "endorsement": [ValidatorError: Path \`endorsement\` is required.],
-}
-`;

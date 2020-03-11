@@ -1,5 +1,4 @@
 const AcademicProfileTagSchema = require('./AcademicProfileTagSchema');
-const AcademicProfileEndorsementSchema = require('./AcademicProfileEndorsementSchema');
 const AcademicProfileCommentSchema = require('./AcademicProfileCommentSchema');
 
 module.exports = (conn) => {
@@ -9,7 +8,6 @@ module.exports = (conn) => {
       default: Date.now,
     },
     tags: [AcademicProfileTagSchema(conn)],
-    endorsements: [AcademicProfileEndorsementSchema(conn)],
     comments: [AcademicProfileCommentSchema(conn)],
     state: {
       index: true,
