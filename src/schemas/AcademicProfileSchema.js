@@ -11,6 +11,11 @@ module.exports = (conn) => {
     tags: [AcademicProfileTagSchema(conn)],
     endorsements: [AcademicProfileEndorsementSchema(conn)],
     comments: [AcademicProfileCommentSchema(conn)],
+    state: {
+      index: true,
+      type: String,
+      enum: ['inJobPlacement', 'inOutplacement', 'notWantToWork', 'working', 'student'],
+    },
   });
 
   return AcademicProfileSchema;

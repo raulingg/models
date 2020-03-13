@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GraduateProfileSchema should fail validation when fields missing 1`] = `
+Object {
+  "user": [ValidatorError: Path \`user\` is required.],
+}
+`;

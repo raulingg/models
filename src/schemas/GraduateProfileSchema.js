@@ -36,6 +36,37 @@
 //
 
 module.exports = (conn) => {
+  const WorkReferenceSchema = new conn.Schema({
+    createdBy: {
+      type: conn.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+      index: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+    url: {
+      type: String,
+      trim: true,
+      required: true,
+    },
+  });
+
+  WorkReferenceSchema.pre('save', function (next) {
+    const { User } = conn.models;
+
+    Promise.all([User.findById(this.createdBy)])
+      .then(([createdBy]) => {
+        if (!createdBy) {
+          return next(new Error('CreatedBy does not exist'));
+        }
+        return next();
+      })
+      .catch(next);
+  });
+
   const GraduateProfileSchema = new conn.Schema({
     user: {
       type: conn.Schema.Types.ObjectId,
@@ -50,7 +81,6 @@ module.exports = (conn) => {
     careerGoals: { type: String, trim: true },
     interests: { type: String, trim: true },
     portfolio: { type: String, trim: true }, // ????
-    available: { type: Boolean },
     employmentProfile: {
       index: true,
       type: String,
@@ -60,6 +90,7 @@ module.exports = (conn) => {
       type: String,
       enum: ['basic', 'intermediate', 'advanced'],
     },
+    workReferences: [WorkReferenceSchema],
   }, {
     collection: 'graduate_profiles',
     toJSON: { virtuals: true },
