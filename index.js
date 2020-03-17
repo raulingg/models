@@ -8,7 +8,6 @@ const CohortPlatziCourse = require('./src/CohortPlatziCourse');
 const CohortProject = require('./src/CohortProject');
 const CohortTopic = require('./src/CohortTopic');
 const CohortTopicSettings = require('./src/CohortTopicSettings');
-const Endorsement = require('./src/Endorsement');
 const GraduateProfile = require('./src/GraduateProfile');
 const GraduateProfileEndorsement = require('./src/GraduateProfileEndorsement');
 const GraduateProfileLifeSkill = require('./src/GraduateProfileLifeSkill');
@@ -59,7 +58,6 @@ module.exports = (conn) => {
     ReviewerSurveySchema,
     ReviewQuestionSchema,
     TagSchema,
-    EndorsementSchema,
     TopicSchema,
     TopicUnitSchema,
     TopicUnitPartSchema,
@@ -93,7 +91,6 @@ module.exports = (conn) => {
     ReviewerSurvey: ReviewerSurvey(conn, ReviewerSurveySchema),
     ReviewQuestion: ReviewQuestion(conn, ReviewQuestionSchema),
     Tag: Tag(conn, TagSchema),
-    Endorsement: Endorsement(conn, EndorsementSchema),
     Topic: Topic(conn, TopicSchema),
     TopicUnit: TopicUnit(conn, TopicUnitSchema),
     TopicUnitPart: TopicUnitPart(conn, TopicUnitPartSchema),
@@ -124,7 +121,6 @@ module.exports = (conn) => {
     ReviewerSurveySchema,
     ReviewQuestionSchema,
     TagSchema,
-    EndorsementSchema,
     TopicSchema,
     TopicUnitSchema,
     TopicUnitPartSchema,

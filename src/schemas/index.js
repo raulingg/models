@@ -17,7 +17,6 @@ const ProjectSchema = require('./ProjectSchema');
 const ReviewerSurveySchema = require('./ReviewerSurveySchema');
 const ReviewQuestionSchema = require('./ReviewQuestionSchema');
 const TagSchema = require('./TagSchema');
-const EndorsementSchema = require('./EndorsementSchema');
 const HiringProcessSchema = require('./HiringProcessSchema');
 const JobOpportunitySchema = require('./JobOpportunitySchema');
 const OrganizationMembershipSchema = require('./OrganizationMembershipSchema');
@@ -52,7 +51,6 @@ module.exports = (conn, document) => ({
   ReviewerSurveySchema: ReviewerSurveySchema(conn),
   ReviewQuestionSchema: ReviewQuestionSchema(conn),
   TagSchema: TagSchema(conn),
-  EndorsementSchema: EndorsementSchema(conn),
   HiringProcessSchema: HiringProcessSchema(conn),
   JobOpportunitySchema: JobOpportunitySchema(conn),
   OrganizationMembershipSchema: OrganizationMembershipSchema(conn),
