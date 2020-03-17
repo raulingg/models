@@ -16,8 +16,6 @@
 // * `endorsedBy`: Basic index to enhance filtering by `endorsedBy`. Note that
 //   this index is NOT _unique_, which means that a given user can endorse many
 //   students.
-// * `organization`: Basic index to enhance filtering by `organization`. Note
-//   that this index is NOT _unique_.
 // * `user/endorsedBy`: A _unique_ compound index that ensures that a
 //   given user can only endorse a given student once.
 //
@@ -29,10 +27,6 @@
 //   we only store an ObjectId pointing to the author's
 //   `User` document in the database, which in turn contains the user's name and
 //   linkedin as well as other user details.
-// * `organization`: Previously we had two text fields (`company` and
-//   `companyUrl`) and now we store a ObjectId pointing to the organization
-//   document in the new `organizations` collection, which in turn contains the
-//   organization's name and url.
 // * `text`: Previously known as `detail`.
 //
 // Example old recommendations in Firestore:
@@ -53,7 +47,6 @@
 //   {
 //     "user": "ObjectId",
 //     "endorsedBy": "ObjectId",
-//     "organization": "ObjectId",
 //     "text": "Blah blah blah..."
 //   }
 // ]
@@ -73,12 +66,6 @@ module.exports = (conn) => {
       required: true,
       index: true,
     },
-    organization: {
-      type: conn.Schema.Types.ObjectId,
-      ref: 'Organization',
-      required: true,
-      index: true,
-    },
     text: {
       type: String,
       trim: true,
@@ -89,8 +76,6 @@ module.exports = (conn) => {
     { user: 1, endorsedBy: 1 },
     { unique: true },
   );
-
-  // GraduateProfileEndorsementSchema.index({ '$**': 'text' });
 
   return GraduateProfileEndorsementSchema;
 };
