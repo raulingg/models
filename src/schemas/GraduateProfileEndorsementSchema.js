@@ -70,7 +70,7 @@ module.exports = (conn) => {
       type: String,
       trim: true,
     },
-  }, { collection: 'graduate_profile_endorsements' });
+  }, { collection: 'graduate_profile_endorsements', timestamps: true });
 
   GraduateProfileEndorsementSchema.index(
     { user: 1, endorsedBy: 1 },
