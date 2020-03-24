@@ -12,7 +12,7 @@ describe('GraduateProfileSchema', () => {
 
   it('should successfully validate with proper values with HubspotReference', (done) => {
     const user = new mongoose.Document({}, UserSchema);
-    const WorkReferenceSchema = new Schema({
+    const JobReferenceSchema = new Schema({
       createdBy: {
         type: Schema.Types.ObjectId,
         ref: 'User',
@@ -37,11 +37,11 @@ describe('GraduateProfileSchema', () => {
     const workReference = new mongoose.Document({
       createdBy: createdBy._id,
       url: 'https://www.hubspot.com/test',
-    }, WorkReferenceSchema);
+    }, JobReferenceSchema);
 
     const graduateProfile = new mongoose.Document({
       user: user._id,
-      workReferences: [workReference],
+      jobReferences: [workReference],
     }, GraduateProfileSchema);
 
     graduateProfile.validate((err) => {

@@ -36,7 +36,7 @@
 //
 
 module.exports = (conn) => {
-  const WorkReferenceSchema = new conn.Schema({
+  const JobReferenceSchema = new conn.Schema({
     createdBy: {
       type: conn.Schema.Types.ObjectId,
       ref: 'User',
@@ -54,7 +54,7 @@ module.exports = (conn) => {
     },
   });
 
-  WorkReferenceSchema.pre('save', function (next) {
+  JobReferenceSchema.pre('save', function (next) {
     const { User } = conn.models;
 
     Promise.all([User.findById(this.createdBy)])
@@ -90,7 +90,7 @@ module.exports = (conn) => {
       type: String,
       enum: ['basic', 'intermediate', 'advanced'],
     },
-    workReferences: [WorkReferenceSchema],
+    jobReferences: [JobReferenceSchema],
   }, {
     collection: 'graduate_profiles',
     toJSON: { virtuals: true },
