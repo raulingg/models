@@ -118,7 +118,10 @@ module.exports = (conn) => {
     // paymentStart: Date,
     // NOTE: ????
     // currentJob: String, // Reference to UserJob collection
-    academicProfile: AcademicProfileSchema(conn),
+    academicProfile: {
+      default: {},
+      type: AcademicProfileSchema(conn),
+    },
   }, {
     toJSON: { virtuals: true },
     toObject: { virtuals: true },

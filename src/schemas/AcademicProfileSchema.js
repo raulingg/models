@@ -12,6 +12,7 @@ module.exports = (conn) => {
     state: {
       index: true,
       type: String,
+      default: 'student',
       enum: ['inJobPlacement', 'inOutplacement', 'notWantToWork', 'working', 'student'],
     },
   });
