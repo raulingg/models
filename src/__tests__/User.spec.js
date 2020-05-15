@@ -74,20 +74,21 @@ describe('User', () => {
     await project.save();
   });
 
-  it('should ony require uid, email and name??', () => {
+  it('should ony require uid, email', () => {
     const doc = new User({
       uid: 'abcdefghijklmnopqrstuvwxyz1',
       email: 'other@somewhere.com',
-      name: 'other',
     });
 
     return doc.save()
       .then((result) => {
         expect(result.uid).toBe('abcdefghijklmnopqrstuvwxyz1');
         expect(result.email).toBe('other@somewhere.com');
-        expect(result.name).toBe('other');
         expect(Array.isArray(result.roles)).toBe(true);
         expect(result.roles.length).toBe(0);
+        expect(result.createdAt instanceof Date).toBeTruthy();
+        expect(result.updatedAt instanceof Date).toBeTruthy();
+        expect(result.academicProfile.state).toBe('student');
       });
   });
 

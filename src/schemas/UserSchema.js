@@ -49,7 +49,7 @@ module.exports = (conn) => {
       index: true,
       unique: true,
     },
-    name: {
+    name: { // should it be required??
       type: String,
       trim: true,
     },
@@ -123,6 +123,7 @@ module.exports = (conn) => {
       type: AcademicProfileSchema(conn),
     },
   }, {
+    timestamps: true,
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
   });
